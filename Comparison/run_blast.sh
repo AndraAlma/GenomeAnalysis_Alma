@@ -16,4 +16,3 @@ module load artemis
 # Your commands
 blastn -query /home/almal/GenomeAnalysis_Alma/DNA_Assembly/assembly_L_Ferriphilum.contigs.fasta -subject /home/almal/GenomeAnalysis_Alma/reference/OBMB01.fasta -outfmt 6 > comparison.out
 
-act L_ferriphilum comparison.out other_name > compare.png
