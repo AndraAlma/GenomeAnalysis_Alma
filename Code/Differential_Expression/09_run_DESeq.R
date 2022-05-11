@@ -23,6 +23,7 @@ dds <- DESeq(ddsHTSeq)
 #Get result table & order it
 res <- results(dds)
 resOrdered <- res[order(res$pvalue),]
+resultsNames(ddsHTSeq)
 
 #Check results for p < 0.05
 res05 <- results(dds, alpha=0.05)
@@ -37,3 +38,12 @@ plotMA(res, ylim=c(-2,2))
 
 # Plot ??
 plotCounts(dds, gene=which.min(res$padj), intgroup="condition")
+
+library("ReportingTools")
+if (!require("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+
+BiocManager::install("ReportingTools")
+report <- HTMLReport(shortName = 'DiffExp_analysis', title = 'Differential expression analysis on continous vs batch cultures with gene names', reportDirectory = ".")
+publish(ddsHTSeq, report, pvalueCutoff=0.05, make.plots = TRUE, factor = sampleTable$condition, reportDir = ".")
+finish(report)
