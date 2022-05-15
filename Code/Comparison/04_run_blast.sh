@@ -14,5 +14,5 @@ module load blast
 module load artemis
 
 # Your commands
-blastn -query /home/almal/GenomeAnalysis_Alma/DNA_Assembly/assembly_L_Ferriphilum.contigs.fasta -subject /home/almal/GenomeAnalysis_Alma/reference/OBMB01.fasta -outfmt 6 > comparison.out
+blastn -query /home/almal/GenomeAnalysis_Alma/DNA_Assembly/assembly_L_Ferriphilum.contigs.fasta -subject /home/almal/GenomeAnalysis_Alma/reference/OBMB01.fasta -outfmt 6 > comparison.crunch
 
